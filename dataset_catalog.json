@@ -1,6 +1,12 @@
-{
+{   
     "food101": {
         "path": "/path/to/dataset",
+        "type": "imagefolder",
+        "train": "train",
+        "test": "test"
+    },
+    "stanford_dogs": {
+        "path": "/home/onyxia/work/datasets/stanford_dogs",
         "type": "imagefolder",
         "train": "train",
         "test": "test"
@@ -66,7 +72,7 @@
         "type": "special"
     },
     "fer2013": {
-        "path": "/path/to/dataset",
+        "path": "./data",
         "type": "imagefolder",
         "train": "train",
         "test": "test"

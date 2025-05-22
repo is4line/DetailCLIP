@@ -2,6 +2,9 @@
     "food101": [
         "a photo of {}, a type of food."
     ],
+    "stanford_dogs": [
+        "a photo of a {}, a type of dog"
+    ],
     "cifar10": [
         "a photo of a {}.",
         "a blurry photo of a {}.",
