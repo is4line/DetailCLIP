@@ -1,0 +1,6 @@
+*.pt
+*.xlsx
+
+datasets/*
+
+**/__pycache__/*

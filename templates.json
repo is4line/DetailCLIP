@@ -1,0 +1,11 @@
+{
+    "stanford_dogs": [
+        "a photo of a {}, a type of dog breed."
+    ],
+    "cub200": [
+        "a photo of a {}, a type of bird."
+    ],
+    "oxford_pets": [
+        "a photo of a {}, a type of pet."
+    ]
+}
