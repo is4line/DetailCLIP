@@ -17,7 +17,6 @@ import models
 from tokenizer import SimpleTokenizer
 import utils
 import pandas as pd
-import openpyxl
 
 
 def get_args_parser():
@@ -34,8 +33,8 @@ def main(args):
     # optionally resume from a checkpoint (takes precedence over autoresume)
     if args.resume:
         ckpt_path = args.resume
-    elif os.path.isfile(os.path.join(args.output_dir, 'DetailCLIP/checkpoint_best.pt')):
-        ckpt_path = os.path.join(args.output_dir, 'DetailCLIP/checkpoint_best.pt')
+    elif os.path.isfile(os.path.join(args.output_dir, 'checkpoint_best.pt')):
+        ckpt_path = os.path.join(args.output_dir, 'checkpoint_best.pt')
     else:
         raise Exception('no checkpoint found')
     
@@ -87,24 +86,20 @@ def main(args):
 
         templates = all_templates[d]
         labels = all_labels[d]
-        print(labels)
 
-        is_acc = d not in ['aircraft', 'oxford_pets', 'caltech101', 'flowers', 'kinetics700_frames', 'hateful_memes', 'stanford_dogs', 'cub200']
-
+        is_acc = d not in ['aircraft', 'oxford_pets', 'caltech101', 'flowers', 'kinetics700_frames', 'hateful_memes', 'cub200', 'stanford_cars']
         acc_or_outputs = validate_zeroshot(val_loader, templates, labels, model, tokenizer, is_acc)
-
-        if d in ['aircraft', 'oxford_pets', 'caltech101', 'flowers', 'stanford_dogs', 'cub200']:
-            metric = mean_per_class(*acc_or_outputs, d)
+        if d in ['aircraft', 'oxford_pets', 'caltech101', 'flowers', 'cub200', 'stanford_cars']:
+            metric = mean_per_class(*acc_or_outputs)
         else:
             metric = acc_or_outputs
 
         results.append(metric)
 
-        print('metric:', metric)
-
     print('all results:')
     for x in results:
-        print('{:.1f}'.format(x))
+        print(x)
+
 
 def validate_zeroshot(val_loader, templates, labels, model, tokenizer, is_acc):
     # switch to evaluate mode
@@ -176,10 +171,10 @@ def accuracy(output, target, topk=(1,)):
         return res
 
 
-def mean_per_class(outputs, targets, dataset):
+def mean_per_class(outputs, targets):
     pred = outputs.argmax(1)
     confusion_matrix = metrics.confusion_matrix(targets, pred)
-    path = f"{dataset} confusion_matrix.csv"
+    path = "stanford_cars confusion_matrix.csv"
     df = pd.DataFrame(confusion_matrix)
     df.to_csv(path, index=False)
     print(path, 'saved')

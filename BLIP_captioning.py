@@ -7,7 +7,7 @@ processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base
 model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
 
 
-data_path = '/home/onyxia/work/datasets/stanford_dogs/test/n02110958-pug/'
+data_path = '/home/onyxia/work/datasets/split_CUB200_2011/test/001.Black_footed_Albatross/'
 
 for file in os.listdir(data_path):
     raw_image = Image.open(data_path+file).convert('RGB')

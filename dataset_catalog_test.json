@@ -1,0 +1,27 @@
+{
+    "stanford_dogs": {
+        "path": "/home/onyxia/work/datasets/stanford_dogs",
+        "type": "imagefolder",
+        "train": "train",
+        "test": "test"
+    },
+    "cub200": {
+        "path": "/home/onyxia/work/datasets/split_CUB200_2011",
+        "type": "imagefolder",
+        "train": "train",
+        "test": "test"
+    },
+    "oxford_pets": {
+        "path": "/home/onyxia/work/datasets/oxford_IIIT_pets",
+        "type": "imagefolder",
+        "train": "train",
+        "test": "test"
+    },
+
+    "stanford_cars": {
+        "path": "/home/onyxia/work/datasets/stanford_cars",
+        "type": "imagefolder",
+        "train": "train",
+        "test": "test"
+    }
+}
