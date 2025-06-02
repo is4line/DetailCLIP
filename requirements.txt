@@ -6,5 +6,5 @@ matplotlib
 seaborn
 transformers
 numpy
-
-
+plotly
+kaleido
