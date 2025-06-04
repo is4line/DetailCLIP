@@ -1,6 +1,8 @@
 *.pt
 *.xlsx
+*.csv
 
 datasets/*
 
 **/__pycache__/*
+images/*
