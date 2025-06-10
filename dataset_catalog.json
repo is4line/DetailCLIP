@@ -1,5 +1,5 @@
 {
-    "blip": {
+    "handmade": {
         "path": "/home/onyxia/work/datasets/split_CUB200_2011",
         "type": "imagefolder",
         "train": "train",
